@@ -12,6 +12,9 @@ spec:
     repoURL: https://github.com/sivasuryaganesh/aks-gitops.git
     targetRevision: HEAD
     path: helm/app-python
+    helm:
+    valueFiles:
+      - values.yaml
 
   destination:
     server: https://kubernetes.default.svc
@@ -21,3 +24,4 @@ spec:
     automated:
       prune: true
       selfHeal: true 
+      enabled: true
