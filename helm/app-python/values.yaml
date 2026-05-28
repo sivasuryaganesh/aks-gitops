@@ -2,7 +2,7 @@ namespace: test
 
 image:
   repository: myacrdevops12345.azurecr.io/python-app
-  tag: "e541fe57d62262a60b3fdf3ebca0ca14af0fd6ad"
+  tag: "a5233679acb0e20e47e0c1e07745614138e2ea87"
 
 service:
   type: LoadBalancer
