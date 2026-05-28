@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: CronJob
+
+metadata:
+  name: timestamp-cronjob
+  namespace: {{ .Values.namespace }}
+
+spec:
+  schedule: "{{ .Values.cronjob.schedule }}"
+
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: timestamp
+            image: busybox
+
+            command:
+            - /bin/sh
+            - -c
+            - date
+
+          restartPolicy: OnFailure

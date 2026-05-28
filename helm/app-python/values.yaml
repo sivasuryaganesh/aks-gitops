@@ -1,0 +1,12 @@
+namespace: test
+
+image:
+  repository: REPLACE_ACR.azurecr.io/python-app
+  tag: latest
+
+service:
+  type: LoadBalancer
+  port: 80
+
+cronjob:
+  schedule: "* * * * *"
