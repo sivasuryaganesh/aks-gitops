@@ -1,7 +1,7 @@
 namespace: test
 
 image:
-  repository: myacrdevops12345.azurecr.io/python-app
+  repository: myacrdevops12345.azurecr.io/app-python
   tag: latest
 
 service:
