@@ -2,11 +2,41 @@ namespace: test
 
 image:
   repository: myacrdevops12345.azurecr.io/python-app
-  tag: "e541fe57d62262a60b3fdf3ebca0ca14af0fd6ad"
+  tag: "a5233679acb0e20e47e0c1e07745614138e2ea87"
+  pulllpolicy: always
 
 service:
   type: LoadBalancer
   port: 80
+  targetPort: 5000
+
+pbackend:
+  enabled: true
 
 cronjob:
+  enabled: true
+  serviceAccount:
+    create: true
+    name: cronjob-sa
   schedule: "* * * * *"
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 70
+
+securityContext:
+  runasnonroot: true
+  runAsUser: 1000'
+
+nodeSelector: 
+  workload: python-app

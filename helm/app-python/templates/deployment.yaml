@@ -6,7 +6,7 @@ metadata:
   namespace: {{ .Values.namespace }}
 
 spec:
-  replicas: 1
+  replicas: 2
 
   selector:
     matchLabels:
@@ -18,9 +18,38 @@ spec:
         app: python-app
 
     spec:
+      nodeSelector:
+        workload: {{ .Values.nodeSelector.workload }}
       containers:
       - name: python-app
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-
+        imagePullPolicy: {{ .Values.image.pulllpolicy }}
         ports:
         - containerPort: 5000
+        
+        resource:
+          {{ toYaml .Values.resources | indent 12 }}
+          # limits:
+          #   memory: {{ .Values.resources.limits.memory }}
+          #   cpu: {{ .Values.resources.limits.cpu }}
+          # requests:
+          #   memory: {{ .Values.resources.requests.memory }}
+          #   cpu: {{ .Values.resources.requests.cpu }}
+        
+        securityContext:
+          runAsNonRoot: {{ .Values.securityContext.runasnonroot }}  
+          runAsUser: {{ .Values.securityContext.runAsUser }} 
+
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 5
+
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 30
+          periodSeconds: 10 
