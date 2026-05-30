@@ -36,8 +36,8 @@ hpa:
   targetCPUUtilizationPercentage: 70
 
 securityContext:
-  runasnonroot: true
-  runAsUser: 1000'
+  runAsNonRoot: true
+  runAsUser: 1000
 
 nodeSelector: 
   workload: python-app
