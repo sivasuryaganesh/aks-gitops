@@ -9,8 +9,8 @@ metadata:
 
 spec:
   schedule: "{{ .Values.cronjob.schedule }}"
-  SuccessfulJobsHistoryLimit: 3
-  FailedJobsHistoryLimit: 2
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 2
   jobTemplate:
     spec:
       template:
@@ -25,7 +25,7 @@ spec:
               image: busybox
               command:
               - /bin/sh
-            - -c
-            - date
+              - -c
+              - date
 
 {{- end }}
