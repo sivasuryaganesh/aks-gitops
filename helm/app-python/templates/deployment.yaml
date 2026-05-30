@@ -28,13 +28,12 @@ spec:
         - containerPort: 5000
 
         resource:
-          {{ toYaml .Values.resources | indent 12 }}
-          # limits:
-          #   memory: {{ .Values.resources.limits.memory }}
-          #   cpu: {{ .Values.resources.limits.cpu }}
-          # requests:
-          #   memory: {{ .Values.resources.requests.memory }}
-          #   cpu: {{ .Values.resources.requests.cpu }}
+          limits:
+            memory: {{ .Values.resources.limits.memory }}
+            cpu: {{ .Values.resources.limits.cpu }}
+          requests:
+            memory: {{ .Values.resources.requests.memory }}
+            cpu: {{ .Values.resources.requests.cpu }}
         
         securityContext:
           runAsNonRoot: {{ .Values.securityContext.runasnonroot }}  
