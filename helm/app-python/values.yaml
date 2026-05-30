@@ -36,7 +36,7 @@ hpa:
   targetCPUUtilizationPercentage: 70
 
 securityContext:
-  runasnonroot: true
+  runAsNonRoot: true
   runAsUser: 1000
 
 nodeSelector: 
