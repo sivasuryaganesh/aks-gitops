@@ -2,7 +2,7 @@ namespace: test
 
 image:
   repository: myacrdevops12345.azurecr.io/python-app
-  tag: "a5233679acb0e20e47e0c1e07745614138e2ea87"
+  tag: "fffdd006531af8e5afdb2cc8d5fb164b386700a6"
   imagePullPolicy: Always
 
 service:
