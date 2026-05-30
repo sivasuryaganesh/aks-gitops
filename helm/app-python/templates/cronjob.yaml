@@ -27,3 +27,5 @@ spec:
               - /bin/sh
             - -c
             - date
+
+{{- end }}
