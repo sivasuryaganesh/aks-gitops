@@ -23,10 +23,10 @@ spec:
       containers:
       - name: python-app
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pulllpolicy }}
+        imagePullPolicy: {{ .Values.image.imagePullPolicy }}
         ports:
         - containerPort: 5000
-        
+
         resource:
           {{ toYaml .Values.resources | indent 12 }}
           # limits:
