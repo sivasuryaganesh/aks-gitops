@@ -37,7 +37,7 @@ hpa:
 
 securityContext:
   runasnonroot: true
-  runAsUser: 1000'
+  runAsUser: 1000
 
 nodeSelector: 
   workload: python-app
