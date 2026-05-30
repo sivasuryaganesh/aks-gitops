@@ -1,0 +1,10 @@
+{{- if .Values.cronjob.serviceAccount.create }}
+
+apiVersion: v1
+kind: ServiceAccount
+
+metadata:
+  name: {{ .Values.cronjob.serviceAccount.name }}
+  namespace: {{ .Values.namespace }}
+
+{{- end }}
