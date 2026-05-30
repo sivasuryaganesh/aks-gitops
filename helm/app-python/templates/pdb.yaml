@@ -9,7 +9,6 @@ metadata:
 
 spec:
   minAvailable: {{ .Values.pdb.minAvailable }}
-
   selector:
     matchLabels:
       app: python-app
